@@ -1,22 +1,11 @@
 ﻿namespace Test.Code
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Collections.Concurrent;
   using System.Linq;
-  using System.Threading;
   using System.Threading.Tasks;
   using System.Web.Http;
   using System.Net;
   using System.Net.Http;
-  using System.Diagnostics;
-  using System.Runtime.Serialization;
-  using System.Xml;
-  using System.Text;
   using System.IO;
-  using System.Web.Hosting;
-
-  using System.Text.RegularExpressions;
 
   /// <summary>
   /// Defines an example of upload controller.

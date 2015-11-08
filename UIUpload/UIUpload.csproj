@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -94,14 +95,12 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\controller.js" />
     <Content Include="Scripts\ui-upload.js" />
     <Content Include="Styles\custom-bootstrap.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\JsonContractResolver.cs" />
     <Compile Include="Code\UploadController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
