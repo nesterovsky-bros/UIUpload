@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html ng-app="test">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <title>UI-Uploader Demo</title>
+ <link rel="stylesheet" href="Styles/custom-bootstrap.css" type="text/css" />
+ <style type="text/css">.ng-cloak { display: none; }</style>
+ <script src="Scripts/angular.min.js"></script>
+ <script src="Scripts/ui-upload.js"></script>
+ <script src="Scripts/controller.js"></script>
+</head>
+<body ng-controller="UploaderTestController as controller">
+  <p>
+    There are several scenarios where ui-upload can be used.
+    These are:
+  </p>
+  <ol>
+    <li>
+      Direct upload by clicking on a link or button:
+      <a upload-link
+         class="btn btn-primary"
+         accept=".*"
+         server-url="api/upload"
+         on-success="controller.uploadSucceed(data, file)"
+         on-error="controller.uploadFailed(e)">Click here to upload an image</a>
+    </li>
+
+    <li>
+      Open "Select File" dialog from script and then upload the selected file automatically,
+      or handle it and upload it manually.<br/>
+      See the following demo:<br/>
+      <a class="btn btn-primary"
+        ng-click="controller.loadImage()">Load an image</a>
+      <table class="ng-cloak" border="1" style="border: 1px solid silver;">
+        <tr style="background-color: #efefef;">
+          <th style="width: 1em;"></th>
+          <th>File Name</th>
+          <th>Image</th>
+        </tr>
+        <tr ng-repeat="image in controller.images">
+          <td><input type="radio" name="selection" ng-click="image.selected = !image.selected"/></td>
+          <td>{{image.name}}</td>
+          <td>
+            <img ng-src="{{image.src}}" style="height: 100px;" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding-top: 5px; text-align: right;">
+            <button type="button"
+                    ng-click="controller.uploadSelectedImage('api/upload')"
+                    ng-disabled="!controller.hasSelection()"
+                    ng-show="controller.images.length">
+              Click to upload selected image
+            </button>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+</body>
+</html>
+
