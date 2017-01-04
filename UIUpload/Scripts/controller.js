@@ -20,7 +20,7 @@
 
         controller.uploadFailed = function (e)
         {
-          alert(e.toString());
+          alert(e && e.toString ? e.toString() : "Unknown error.");
         };
 
         controller.uploadImage = function(serverUrl)

@@ -32,22 +32,22 @@
       {
         return $q(function(resolve)
         {
-          var input = inputFile[0];
-
           inputFile.one(
             "change",
             function()
             {
-              if (input.value)
+              if (inputFile.val())
               {
-                resolve({ file: input.files[0], description: input.value });
+                resolve({ file: inputFile[0].files[0], description: inputFile.val() });
 
-                input.value = null;
+                inputFile.val(null);
               }
             });
 
           $timeout(function()
           {
+            var input = inputFile[0];
+
             if (typeof MouseEvent === "function")
             {
               var e = new MouseEvent("click", { bubbles: true, cancelable: true });
@@ -58,7 +58,7 @@
             {
               var e = document.createEvent("MouseEvent");
 
-              e.initEvent("click", true, false);
+              e.initEvent("click", true, true);
 
               input.dispatchEvent(e);
             }
